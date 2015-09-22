@@ -1,0 +1,30 @@
+h3 MY ORDER
+.time
+	.t1 ESTIMATED DELIVERY
+	.t2 50
+	.t3 MINUTES
+.list
+	.item(ng-repeat="(key, item) in cart")
+		.t1 {{item.quantity}}x
+		.t2 {{item.name}}
+		.t3 £{{item.price | number:2}}
+		.clearfix
+
+.result
+	.item
+		.t1 Subtotal
+		.t2 £{{subtotal | number:2}}
+		.clearfix
+	.item
+		.t1 Charge
+		.t2 £{{charge | number:2}}
+		.clearfix
+	.item
+		.t1 Driver Tip
+		.t2 £{{drivertip | number:2}}
+		.clearfix
+
+.checkout-total
+	.t1 Total
+	.t2 £{{total | number:2}}
+	.clearfix

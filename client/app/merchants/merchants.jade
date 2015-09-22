@@ -1,0 +1,73 @@
+.hero-banner
+  .container
+    .row
+      .col-sm-12
+        .text-center.base-box
+          h1 FastFood & Takeaways in {{postcode}}
+          br
+          a.btn.btn-theme.btn-theme-white(href="/")
+            i.fa.fa-map-marker
+            |  Change location
+div(style='background-color: #e8ebed')
+  .container
+    .row
+      .col-sm-12.text-right
+        br
+        // Single button
+        .btn-group
+          button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true')
+            | Sort by
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='#') Action
+            li
+              a(href='#') Another action
+            li
+              a(href='#') Something else here
+            li.divider
+            li
+              a(href='#') Separated link
+        br
+
+    .row
+      .col-sm-12.text-center(ng-show="working")
+        data-loading
+         .right
+          i.fa.fa-spinner.fa-spin.fa-3x
+      .col-sm-12
+        // Row set
+        .row
+          .col-sm-4(data-ng-repeat="merchant in merchants", ui-sref="merchants.menu({id: merchant.id, merchantName: merchant.name, postcode: merchant.postcode})")
+            .search-box-base.animated.fadeInRight
+              ul.list-unstyled.list-inline.parent-list
+                li
+                  img(src='{{merchant.image}}', alt=' Image')
+                li
+                  ul.list-unstyled
+                    li
+                      h5 {{merchant.name}}
+                    li
+                      h6 {{merchant.notes}}
+                    li
+                      i.fa.fa-star.active
+                      i.fa.fa-star.active
+                      i.fa.fa-star.active
+                      i.fa.fa-star.active
+                      i.fa.fa-star
+                    li
+                      span 20 ratings
+                    li
+              hr
+              ul.list-unstyled.list-inline.deliver-time
+                li
+                  i.fa.fa-clock-o
+                li {{merchant.time}} minutes (approx)
+              hr
+              ul.list-unstyled.list-inline.distance-charge
+                li
+                  i.fa.fa-location-arrow
+                  | {{merchant.distance}} miles
+                li(style='float: right;')
+                  i.fa.fa-car
+                  | £{{merchant.charges}}/ delivery

@@ -1,0 +1,14 @@
+.pt-25.pb-25
+  .row(ng-repeat="item in cart track by item.id")
+    .col-md-10
+      .cart-title {{item.name}}
+      .cart-detail
+        | {{item.quantity}} for £{{item.price | number:2}}
+    .col-md-2
+      a.btn.btn-mini.pull-right.custom(ui-sref="checkout.account")
+        i.fa.fa-pencil
+    .clearfix
+    hr
+.row.text-center
+  button.btn.btn-theme(ui-sref="checkout.account", ng-if="cart.length>0") CHECKOUT
+    .mt-25(ng-if="!cart.length") Your cart is empty

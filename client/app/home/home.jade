@@ -1,0 +1,407 @@
+#banner-section
+     .banner-form
+        .container
+          .content.form-group.has-feedback(ng-class='{\'has-error\': !postcode.valid && postcodeForm.postcodeSearch.$dirty, \'has-success\': postcode.valid}')
+          .row
+            .col-sm-12.text-center
+              h1 Order From Your Favourite Restaurants, Stores and Outlets
+              h3 we deliver tasty food,  groceries and general items under 1 hour
+
+              form.search-input.has-feedback
+                .input-group(name='postcodeForm', data-ng-submit='postcode.search()')
+                  div(validation-input, callback='postcode.check', showvalid='postcode.showvalid')
+                    input.form-control.fa.fa-location-arrow(to-upper type='text', name='postcodeSearch' placeholder='Enter your postcode e.g SW75HR', data-ng-model='postcode.value', autocomplete='off')
+                  div
+                    i.location-check.fa.fa-location-arrow
+
+                  span.input-group-btn
+                    button.btn.btn-default(type='button' data-ng-click="postcode.search()" name='submit')
+                      i.fa.fa-search
+                      |  SEARCH
+                small.help-block(ng-show='postcode.value && !postcode.valid && postcodeForm.postcodeSearch.$dirty') The value is not a valid UK postcode
+                small.help-block(ng-show='!postcode.value && postcodeForm.postcodeSearch.$dirty') Please enter your postcode.
+
+              validation-input(data-type="text")
+
+    .four-step(style='padding-bottom: 4%;')
+      .container
+        .row
+          .col-sm-12
+            .section-title.text-center
+              h1 4 Easy Steps
+              .bar
+        .row
+          .col-sm-3.text-center.img-block
+            img.img-responsive(src='assets/images/s1.png', alt='img_alt')
+            br
+
+            h4
+              span 1
+              |  Enter your Postcode
+
+          .col-sm-3.text-center.img-block
+            img.img-responsive(src='assets/images/s2.png', alt='img_alt')
+
+            br
+
+            h4
+              span 2
+              |  Pick a restaurant or outlets
+
+          .col-sm-3.text-center.img-block
+            img.img-responsive(src='assets/images/s3.png', alt='img_alt')
+
+            br
+
+            h4
+              span 3
+              |  Pay Online or COD
+
+          .col-sm-3.text-center.img-block
+            img.img-responsive(src='assets/images/s4.png', alt='img_alt')
+
+            br
+
+            h4
+              span 4
+              |  Your Food On its Way!
+    // FOUR STEP END
+    // TRENDING
+  #section-trending
+      .container
+        .row
+
+          .col-sm-6
+            h1 {{trending.title}}
+
+            p {{trending.description}}
+          .col-sm-6
+            img.img-responsive(src='assets/images/im1.jpg', alt='img_alt')
+
+  #get-start-section
+      .container
+        .row
+          .col-sm-8
+            h4
+              | Order from the best restaurants and fast-food outlets and have your
+              br
+              | food delivered
+
+          .col-sm-4
+            h1 In 45 minutes.
+
+            a.btn.btn-default.btn-theme GET STARTED
+    // GET STARTED END
+    // TAKEAWAY
+  div(style='padding-bottom: 2%;')
+      .container
+        .row
+          .col-sm-12
+            .section-title.text-center
+              h1 {{takeaways.title}}
+              .bar
+        .row
+          .col-sm-12(data-ng-controller='CarouselCrtl')
+              carousel#takeway-slider(interval='myInterval' nowrap='noWrapSlides' role='listbox')
+                slide(data-ng-repeat='images in slides', ng-model="slides")
+                  .col-sm-4.text-center(data-ng-repeat='image in images' active='images.active')
+                    img(src='{{image.imageSrc}}', alt='{{image.imageAlt}}')
+                    ul.list-unstyled.list-inline
+                      li(data-ng-repeat='location in image.areas')
+                        i.fa.fa-map-marker.red
+                        |  {{location}}
+
+
+
+
+
+
+ br
+hr
+#latest-order(style='padding-bottom: 2%;')
+      .container
+        .row
+          .col-sm-12
+            .section-title.text-center
+
+              h1.icon Recent Orders &amp; Updates
+
+              .bar
+
+        .row
+          #latest_news.col-sm-12.latest_news_slider(slick-it='{slidesToShow: 2, slidesToScroll: 1, autoplay: true, autoplaySpeed: 2500, slide: div, responsive: [{breakpoint: 1345, settings: {slidesToShow: 5, slidesToShow: 1, infinite: true, dots: true}}, {breakpoint: 1000, settings: {slidesToShow: 4, slidesToScroll:1}}, {breakpoint: 800, settings: {slidesToShow: 3, slidesToScroll: 1}}, {breakpoint: 600, settings: {slidesToShow: 1, slidesToScroll: 1}}]}')
+           .col-sm-3.col(data-ng-repeat="order in orders")
+             ul.list-unstyled
+               li
+                 h5.common(data-ng-repeat="rese in order.childrenList")
+                   | {{rese.QTY}}{{$last ? '':'x'}} {{rese.NAME | limitTo: 25}}{{$last ? '...' : ', '}}
+               li.small.small-bold {{order.orderDateAdded | date: 'hh:mm a EEE MMM yyyy'}}
+               li.small.small-bold Ordered By: {{order.orderedBy}}
+
+
+    // LATEST ORDER END
+    // WANT TO ORDER
+  #want-to-order
+      .container
+        .row
+          .col-sm-12.text-center
+            ul.list-unstyled.list-inline
+              li
+                h3 Want to order for the office? Signup for a corporate account
+
+              li
+                a.btn.btn-default.btn-theme JOIN US
+    // WANT TO ORDER END
+    // PARTNERS
+  div(style='padding-bottom: 2%;')
+      .container
+        .row
+          .col-sm-12
+            .section-title.text-center
+              h1 CHOOSE FROM THE BEST RESTAURANTS
+
+              p
+                | We are proud to work with the best restaurants and outlets across the cities
+                br
+                | to ensure we bring you that great taste you always desire.
+
+              .bar
+
+
+  #partner-resturant.container
+      .row(style='padding-left: 35px;padding-right: 35px;margin-top: 15px;margin-bottom: 5%;')
+        .col-sm-12.partner_slider(slick-it='{slidesToShow: 5, slidesToScroll: 1, autoplay: true, autoplaySpeed: 2500, slide: div, responsive: [{breakpoint: 1345, settings: {slidesToShow: 5, slidesToShow: 1, infinite: true, dots: true}}, {breakpoint: 1000, settings: {slidesToShow: 4, slidesToScroll:1}}, {breakpoint: 800, settings: {slidesToShow: 3, slidesToScroll: 1}}, {breakpoint: 600, settings: {slidesToShow: 1, slidesToScroll: 1}}]}')
+          // slide item
+          .col-sm-3(data-ng-repeat="images in restaurants.data")
+            img(src='{{images.imageSrc}}', alt='{{images.imageAlt}}')
+
+    // PARTNERS END
+    // CITIES WE COVER
+  #cities-cover
+      .container
+        .row
+          .section-title.text-center
+            h1 CITIES WE COVER
+
+            .bar
+
+        .row
+          .col-sm-12
+            .text-center
+              ul.list-unstyled.list-inline
+                li
+                  a(href='#city-cover-slider', data-slide='prev')
+                    img(src='../assets/images/w-ar-left.png', alt='img_alt')
+                li
+                  a(href='#city-cover-slider', data-slide='next')
+                    img(src='../assets/images/w-ar-right.png', alt='img_alt')
+            carousel#city-cover-slider(interval='3000' nowrap='false' role='listbox')
+
+              slide.item
+                  .row
+                    .col-sm-4.col-md-offset-2
+                      img.img-responsive(src='../assets/images/b1.jpg', alt='img_alt')
+
+                      ul.list-unstyled.list-inline
+                        li
+                          i.fa.fa-map-marker
+
+                        li
+                          h4 London
+
+                    .col-sm-4
+                      img.img-responsive(src='../assets/images/b2.jpg', alt='img_alt')
+
+                      ul.list-unstyled.list-inline
+                        li
+                          i.fa.fa-map-marker
+
+                        li
+                          h4 Portsmouth
+
+              slide.item
+                  .row
+                    .col-sm-4.col-md-offset-2
+                      img.img-responsive(src='assets/images/b1.jpg', alt='img_alt')
+
+                      ul.list-unstyled.list-inline
+                        li
+                          i.fa.fa-map-marker
+
+                        li
+                          h4 London
+
+                    .col-sm-4
+                      img.img-responsive(src='assets/images/b2.jpg', alt='img_alt')
+
+                      ul.list-unstyled.list-inline
+                        li
+                          i.fa.fa-map-marker
+
+                        li
+                          h4 Portsmouth
+
+              slide.item
+                  .row
+                    .col-sm-4.col-md-offset-2
+                      img.img-responsive(src='assets/images/b1.jpg', alt='img_alt')
+
+                      ul.list-unstyled.list-inline
+                        li
+                          i.fa.fa-map-marker
+
+                        li
+                          h4 London
+
+                    .col-sm-4
+                      img.img-responsive(src='assets/images/b2.jpg', alt='img_alt')
+
+                      ul.list-unstyled.list-inline
+                        li
+                          i.fa.fa-map-marker
+
+                        li
+                          h4 Portsmouth
+
+     div(style='padding-bottom: 5%;')
+      .container
+        .row
+          .col-sm-12
+            .section-title.text-center
+              h1 WHAT OUR CUSTOMERS THINK
+
+              p
+                | What brings us joy most is delighting our customers.
+                br
+                | See what some of them have to say about us.
+
+              .bar
+
+        .row
+          .col-sm-12
+            #testimonial-slider.carousel.slide(carousel)
+              // Indicators
+                  // Wrapper for slides
+              carousel.carousel-inner(interval='3000' nowrap='false' role='listbox')
+                slide.item
+                  .row
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+
+                slide.item
+                  .row
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+
+                slide.item
+                  .row
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+
+                    .col-sm-4
+                      .testi-base
+                        ul.list-unstyled.list-inline
+                          li
+                            i.fa.fa-user.fa-2x
+                            |  @RubyConfue
+
+                        p
+                          | Thank you so much for my delivery last night- the girl that delivered my order was a legend!
+              // Controls
+    // TESTIMONIAL END
+    // FOR RESTAURANT
+
+  .deliver-res(style='background-color: #f0f0f0;padding-top: 3%;padding-bottom: 3%;')
+      .container
+        .row
+          .col-sm-8
+            h1 Restaurant Owners?
+
+            p
+              | We <span class="dlites">DLites</span> our Restaurant partners by enabling them focus on what they do best: Making that lovely, tasty dishes available! We do every thing else: From New Sales, Order Pickup and Delivery, Restaurant App, as well as Daily Payment Remittance. <br> To find out more, please <a href="mailto: partners@dliteme.com">reach out to us.</a>
+          .col-sm-4
+            img.img-responsive.img-circle(src='assets/images/tomatoes011.jpg', alt='img_alt')
+    // FOR RESTAURANT END
+    // FOR STAFF
+  .deliver-staff(style='background-color: #fff;padding-top: 3%;padding-bottom: 3%;')
+      .container
+        .row
+          .col-sm-4
+            img.img-responsive.img-circle(src='assets/images/d-staff.jpg', alt='img_alt')
+
+          .col-sm-8
+            h1 Delivery Staff
+
+            p
+              | We are always on the lookout for reliable delivery drivers. Excellent rate of payment and 3 days induction.To find out more, please email <a href="mailto: deliver@dliteme.com">deliver@dliteme.com</a>

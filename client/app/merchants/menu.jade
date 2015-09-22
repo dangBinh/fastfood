@@ -1,0 +1,123 @@
+.page-menu
+  .banner-common.banner-common-menu-page
+    .container
+      .row
+        .col-sm-12
+          .text-center.base-box
+            h1 Select your menus below.
+            p Please select your menus, sides, choice of drinks as well as any dietary requirements.
+
+  div(style='background-color: #e8ebed;padding-bottom: 3%;')
+    .container
+      .row
+        .col-sm-12
+          .base-container
+            h1.text-center {{merchant.name}} -  {{merchant.Merchant_Group.name}}
+            .child-base
+              .row
+                .col-sm-6.text-left
+                  ul.list-unstyled.list-inline.parent-list
+                    li(style="vertical-align: top")
+                      img(ng-src='{{merchant.picture}}', alt='.')
+                    li
+                      ul.list-unstyled
+                        li
+                          h4 {{merchant.name}}
+                        li.divider
+                        li
+                          span Opening hours
+
+                          div(ng-repeat="(day, time) in opening_hours track by $index", ng-show="day == today || showAllHour")
+                            | {{day}} {{time.From}} - {{time.To}}
+                        li
+                          a(href='', ng-click='showAllHour = !showAllHour', ng-show="!showAllHour") View all openings Hour
+                          a(href='', ng-click='showAllHour = !showAllHour', ng-show="showAllHour") Hide all openings Hour
+                .col-sm-6.text-right
+                  ul.list-unstyled.btn-list
+                    li
+                      // Single button
+                      .btn-group
+                        button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true')
+                          span.title Delivery
+                          span.caret
+                        ul.dropdown-menu
+                          li
+                            a(href='#') Action
+                          li
+                            a(href='#') Another action
+                          li
+                            a(href='#') Something else here
+                          li.divider
+                          li
+                            a(href='#') Separated link
+                    li.space
+                    li
+                      // Single button
+                      .btn-group
+                        button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true')
+                          span.title ASAP
+                          span.caret
+                        ul.dropdown-menu
+                          li
+                            a(href='#') Action
+                          li
+                            a(href='#') Another action
+                          li
+                            a(href='#') Something else here
+                          li.divider
+                          li
+                            a(href='#') Separated link
+      .row(style='margin-top: 20px;')
+        .col-sm-3
+          .base-container
+            h3.text-center Categories
+            .child-base
+              ul.list-unstyled.list-group.filter-menu
+                li
+                  input.custom-checkbox(id="check-all", type='checkbox', ng-value="allCategories()", ng-model="allCategoriesShow" ng-change="toggleAllCategories()")
+                  label(for="check-all")  All
+                li(ng-repeat="(key,category) in categories track by $index")
+                  input.custom-checkbox(id="check-{{key}}", type='checkbox', ng-model="category.visible")
+                  label(for="check-{{key}}")  {{category.category_name}}
+        .col-md-6.col-sm-5
+          .base-container(ng-repeat="category in categories track by $index", ng-if="category.visible")
+            h3.text-center {{category.category_name}}
+            .child-base
+              .table-responsive
+                table.table.table-striped.table-menu
+                  tr(ng-repeat="menu in categories_menu[category.category_id] track by $index")
+                    td {{menu.item_name}}
+                    td.price £{{menu.item_price | number:2}}
+                    td.cart.text-right
+                      a.btn-mini(href="javascript:;", ng-click="add(menu)") +
+        .col-md-3.col-sm-4
+          .base-container
+            h3.text-center Cart
+            .child-base(ng-if="cart.length")
+              ul.list-unstyled.list-group.cart-list
+                li.list-parent(ng-repeat="(key, item) in cart track by $index")
+                  ul.list-unstyled.list-inline.cart
+                    li.t1 {{item.quantity}} x
+                    li.t2 {{item.name}}
+                    li.t3
+                      span £{{item.price | number:2}}
+                      .nowrap.pull-right
+                        a.btn-mini.custom.times(href='javascript:;', ng-click="remove(key)")
+                          i.fa.fa-times
+                        a.btn-mini.custom(href='', ng-click="open(key)")
+                          i.fa.fa-pencil
+                  .clearfix
+              ul.list-unstyled.text-right
+                li.sub-total Sub Total: £{{subtotal | number:2}}
+                li.sub-total Charge: £{{charge | number:2}}
+                li.sub-total
+                  a.btn-mini(href="javascript:;", ng-click="addDriverTip()") +
+                  a.btn-mini(href="javascript:;", ng-click="reduceDriverTip()") -
+                  |  Driver Tip: £{{drivertip | number:2}}
+                li.total Total: £{{total | number:2}}
+              .alert.alert-warning.text-center.mt-25(ng-if="total<10") Your order must be at least £10
+              .text-center(style='padding: 7%;')
+                a.btn.btn-theme.btn-checkout(ui-sref="checkout.account", ng-disabled="total<10") Checkout
+            .child-base(ng-if="!cart.length")
+              .text-center Your cart is empty
+

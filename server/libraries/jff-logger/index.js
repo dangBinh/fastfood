@@ -1,0 +1,1 @@
+var Logger = module.exports = require('./lib/logger');

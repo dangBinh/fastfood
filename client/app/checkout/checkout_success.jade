@@ -1,0 +1,33 @@
+.checkout-success.pb-25
+	.mt-25.text-center Hi Kunle
+	h2.text-center Your Payment information is correct
+	.mb-25.col-md-8.col-md-offset-2.col-xs-10.col-xs-offset-1
+		h4 Order information
+		.list
+			.item(ng-repeat="(key, item) in cart")
+				.t1 {{item.quantity}}x
+				.t2 {{item.name}}
+				.t3 £{{item.price | number:2}}
+				.clearfix
+
+		.result
+			.item
+				.t1 Subtotal
+				.t2 £{{subtotal | number:2}}
+				.clearfix
+			.item
+				.t1 Charge
+				.t2 £{{charge | number:2}}
+				.clearfix
+			.item
+				.t1 Driver Tip
+				.t2 £{{drivertip | number:2}}
+				.clearfix
+
+		.checkout-total
+			.t1 Total
+			.t2 £{{total | number:2}}
+			.clearfix
+	.text-center
+		button.btn(ui-sref="checkout.sending")
+			| Continue

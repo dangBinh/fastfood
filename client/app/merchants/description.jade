@@ -1,0 +1,10 @@
+.pt-25
+	.row-fluid
+		.form-group.mt-25.mb-25.col-sm-12
+			label ENTER ITEM DESCRIPTION
+			textarea.form-control(data-ng-model='comment', placeholder='DESCRIPTION', rows="10")
+
+		.form-group.col-sm-12.text-right
+			button.btn.btn-lg.btn-primary(type="button", ng-click="cancel()") CANCEL
+			button.btn.btn-lg.btn-primary(type="button", ng-click="submit()") SUBMIT
+	.clearfix

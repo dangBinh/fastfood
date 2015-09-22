@@ -1,0 +1,15 @@
+block vars
+
+button.close(data-ng-click="$root.modals.close()")
+  i.fa.fa-cross
+form.popupForm(
+  novalidate,
+  name="modalForm"
+)
+
+  .modal-header
+    block header
+  .modal-body
+    block content
+  .modal-footer
+    block content

@@ -1,0 +1,17 @@
+{
+  "name": "bigtop-logger",
+  "author": {
+    "name": "Benjamin Staker"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "moment": "~2.5.1"
+  },
+  "readme": "Big Top - Private NPM modules\n=============================\n\nEach repo is on it's own branch",
+  "readmeFilename": "README.md",
+  "description": "Big Top - Private NPM modules =============================",
+  "_id": "bigtop-logger@0.0.1",
+  "_shasum": "ec5f456dd2752353fa8fbce24e36d8982eb427b5",
+  "_resolved": "git+https://devnatives:Amcom235790@bitbucket.org/netnatives/bt-module-logger.git#858d1392fe5ca8719cbcf7327b080ac2948d903b",
+  "_from": "bigtop-logger@git+https://devnatives:Amcom235790@bitbucket.org/netnatives/bt-module-logger.git"
+}

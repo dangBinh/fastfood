@@ -1,0 +1,50 @@
+form(ng-controller="SignupCtrl", ng-submit="signup()")
+	.title Create an account
+	.row-fluid
+		.form-group.mb-25.col-sm-6
+			label NAME
+			div(validation-input, callback='validate.screenname', required="true", showvalid='validate.showvalid.screenname')
+				input.form-control(id="screenname", maxlength='256', name='screenname', data-ng-model='user.screenname', placeholder='Full Name', type="text")
+
+		.form-group.mb-25.col-sm-6
+			label USERNAME
+			div(validation-input, callback='validate.username', required="true", showvalid='validate.showvalid.username')
+				input.form-control(id="username", maxlength='256', name='username', data-ng-model='user.username', placeholder='User Name', type="text")
+
+		.form-group.mb-25.col-sm-12
+			label EMAIL
+			div(validation-input, callback='validate.email', required="true", showvalid='validate.showvalid.email')
+				input.form-control(id="email", maxlength='256', name='email', data-ng-model='user.email', placeholder='Email Address', type="text")
+
+		.form-group.mb-25.col-sm-6
+			label PASSWORD
+			div(validation-input, callback='validate.password', required="true", showvalid='validate.showvalid.password')
+				input.form-control(id="password", maxlength="256", name="password", data-ng-model="user.password", placeholder="Password", type="password")
+
+		.form-group.mb-25.col-sm-6
+			label POSTCODE
+			div(validation-input, callback='validate.postcode', required="true", showvalid='validate.showvalid.postcode')
+				input.form-control(to-upper, id="postcode", maxlength='256', name='postcode', data-ng-model='user.postcode', placeholder='Postcode', type="text")
+
+		.form-group.col-sm-12
+      button.btn.btn-theme.btn-lg.btn-block(id="signup_modal_form", type='submit') Join Now
+	.clearfix
+.split
+	.or OR
+form(ng-controller="CheckoutLoginCtrl", ng-submit="signin()")
+  .title Sign In
+	.row-fluid
+		.form-group.mb-25.col-sm-6
+			label EMAIL
+			div(validation-input, callback='validate.email', required="true", showvalid='validate.showvalid.email')
+				input.form-control(id="email", maxlength='256', name='email', data-ng-model='loginUser.email', placeholder='Email Address', type="text")
+
+		.form-group.mb-25.col-sm-6
+			label PASSWORD
+			div(validation-input, callback='validate.password', required="true", showvalid='validate.showvalid.password')
+				input.form-control(id="password", maxlength="256", name="password", data-ng-model="loginUser.password", placeholder="Password", type="password")
+
+		.clearfix
+
+		.form-group.col-sm-12
+      button.btn.btn-lg.btn-theme.btn-block(id="signin_modal_form", type='submit') Log In

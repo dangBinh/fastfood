@@ -1,0 +1,22 @@
+block vars
+#dynamicModal.modal.modal-light(
+tabindex="-1",
+role="dialog",
+aria-labelledby="authModalWindow",
+aria-hidden="true",
+data-ng-controller="#{ModalController}"
+)
+  .modal-dialog.modal-dialog-medium
+    .modal-content
+      button.close(data-ng-click="$root.modals.close()")
+        i.bt-icon.bt-icon-cross
+      form.popupForm(
+      noValidate,
+      name="modalForm"
+      )
+        .modal-header
+          block header
+        .modal-body
+          block content
+        .modal-footer
+          block buttons

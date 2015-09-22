@@ -1,0 +1,22 @@
+fieldset
+  .row-fluid
+    .form-group.mb-25.col-sm-12
+      div
+        input.form-control(required="true", maxlength='256', name='email', data-ng-model='user.email', placeholder='Email Address', type="text", data-ng-pattern="/.+@[^@]+\.[^@]{2,}$/")
+        small.error-text.text-danger(ng-show='showError && modalForm.email.$error.required') Please provide an email.
+        small.error-text.text-danger(ng-show='showError && modalForm.email.$error.pattern') * Email is not valid
+    .form-group.mb-25.col-sm-12
+      div
+        input.form-control(validation-input required="true", maxlength="256", name="password", data-ng-model="user.password", placeholder="Password", type="password")
+        small.error-text.text-danger(ng-show='showError && modalForm.password.$error.required') Password is required.
+    .clearfix
+
+    //.form-group.col-lg-7
+      label.remember(for='remember_me')
+      input.form-control.custom-checkbox.pull-left.ng-touched(type='checkbox',  id='remember_me', data-ng-model='signin_rememberme')
+      span.space Remember me
+
+    .form-group.col-sm-12
+      button.btn.btn-lg.btn-theme.btn-block(type='submit') Log In
+
+

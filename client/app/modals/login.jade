@@ -1,0 +1,23 @@
+extends templates/simple-basic
+block vars
+block header
+  h1.modalTitle
+    span(ng-if="!tab") Sign In
+    span(ng-if="tab") Join Now
+block content
+  .modal-inner.signin
+    .login-tab-container
+      .login-tab
+        .tab-group
+          .btn.tab(ng-click="showTab(0)", ng-class="{'active': !tab}") Sign In
+          .btn.tab(ng-click="showTab(1)", ng-class="{'active': tab}") Join Now
+    div(ng-if="!tab")
+      p.text-left(style='padding-left: 20px') Please login below.
+      include subviews/login/form
+    div(ng-if="tab")
+      p.text-center Sign up takes just few seconds.
+      .clearfix
+      include subviews/login/signup
+
+block buttons
+    include subviews/login/send

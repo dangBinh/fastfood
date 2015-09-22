@@ -1,0 +1,16 @@
+.uncovered-modal
+	.modal-body
+		.col-md-12
+			br
+			p We're sorry that we haven't started service in your area yet. Please give us your informations.
+			hr
+		.col-md-6
+			label Email
+			input.form-control(type="email", placeholder="Your email", ng-model="user.email")
+		.col-md-6
+			label Postcode
+			input.form-control(type="text", ng-value="postcode", disabled="disabled", ng-model="user.postcode")
+		.clearfix.mb-25
+	.modal-footer
+		.btn.btn-primary(type="button", ng-click="submit()") Submit
+		.btn.btn-warning(type="button", ng-click="cancel()") Cancel

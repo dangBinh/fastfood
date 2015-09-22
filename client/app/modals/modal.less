@@ -1,0 +1,577 @@
+.login-tab-container {
+  width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  .login-tab {
+    width: 260px;
+    .tab-group {
+      padding: 15px;
+      margin-bottom: 20px;
+      width: 100%;
+      display: table;
+      .tab {
+        color: #F15850;
+        width: 50%;
+        border: #F15850 1px solid;
+        box-shadow: none;
+        text-align: center;
+        padding: 0;
+        background-color: transparent;
+        border-radius: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+        &:active,
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+        &.active {
+          color: #fff;
+          background-color: #F15850;
+          &:after {
+            content: '';
+            position: absolute;
+            width: 10%;
+            left: 45%;
+            bottom: -10px;
+            height: 10px;
+            border-top: #F15850 10px solid;
+            border-right: transparent 10px solid;
+            border-left: transparent 10px solid;
+          }
+          &:hover {
+            border-color: #D74E47;
+            color: #FFFFFF;
+            &:after {
+              border-top-color: #D74E47;
+            }
+          }
+        }
+        &:first-child {
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+        &:last-child {
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  form {
+    width: 100%;
+  }
+  .btn-primary:focus,
+  .btn-primary.focus {
+    background-color: #F15850;
+    border-color: #F15850;
+  }
+  .modal-dialog-medium {
+    width: 750px;
+  }
+  .modal-dialog {
+    fieldset {
+      margin-top: 10px;
+    }
+  }
+  .modal-dialog-large {
+    width: 900px;
+  }
+  .close {
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    z-index: 2;
+    font-size: 30px;
+    text-shadow: none;
+    opacity: .5;
+    .transition(all .2s ease);
+    &:hover {
+      opacity: .8;
+    }
+  }
+  .alert {
+    a {
+      color: #000;
+    }
+  }
+  .alert-reset {
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 0;
+  }
+  .modal-vertical-centered {
+    transform: translate(0, 50%) !important;
+    -ms-transform: translate(0, 50%) !important;
+    /* IE 9 */
+    -webkit-transform: translate(0, 50%) !important;
+    /* Safari and Chrome */
+  }
+  .modal-content {
+    border-radius: 5px;
+    border: none;
+    background: lightgrey;
+  }
+  h1 {
+    font-family: 'Lato' !important;
+  }
+  .modal-header {
+    background: #A01111;
+    color: #fff;
+    border-radius: 5px 5px 0px 0px;
+    padding: 15px 40px 12px 20px;
+    color: #fff;
+    line-height: 1.2;
+    .close {
+      margin-top: 5px;
+      color: #fff;
+    }
+    i {
+      margin-right: 10px;
+    }
+    h1 {
+      font-size: 26px;
+      vertical-align: top;
+      display: inline-block;
+    }
+    h1,
+    h2,
+    h3 {
+      vertical-align: top;
+      display: inline-block;
+      margin: 0;
+    }
+    .btn-group {
+      margin-left: 10px;
+      vertical-align: top;
+      .btn {
+        margin-top: 0px;
+      }
+    }
+    &:empty {
+      display: none;
+    }
+  }
+  .modal-title {
+    line-height: 1.1;
+  }
+  form input[type=text],
+  form input[type=password],
+  form input[type=search],
+  form input[type=email],
+  form select {
+    width: 100%;
+  }
+  .btn-primary.disabled,
+  .btn-primary[disabled],
+  fieldset[disabled] .btn-primary,
+  .btn-primary.disabled:hover,
+  .btn-primary[disabled]:hover,
+  fieldset[disabled] .btn-primary:hover,
+  .btn-primary.disabled:focus,
+  .btn-primary[disabled]:focus,
+  fieldset[disabled] .btn-primary:focus,
+  .btn-primary.disabled.focus,
+  .btn-primary[disabled].focus,
+  fieldset[disabled] .btn-primary.focus,
+  .btn-primary.disabled:active,
+  .btn-primary[disabled]:active,
+  fieldset[disabled] .btn-primary:active,
+  .btn-primary.disabled.active,
+  .btn-primary[disabled].active,
+  fieldset[disabled] .btn-primary.active {
+    background-color: #D74E47;
+    border-color: #D74E47;
+  }
+  .modal-body {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    // overflow-y: auto;
+    -webkit-backface-visibility: hidden;
+    /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
+    padding: 0;
+    .theme-container {
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    h1:first-child {
+      margin-top: 0;
+    }
+    .btn {
+      font-size: 16px;
+      height: 55px;
+
+    }
+
+    button {
+      margin-bottom: -25px
+    }
+  }
+  .modal-inner {
+    padding: 20px;
+  }
+  .modal-inner--large {
+    padding: 30px 40px;
+  }
+  .modal-footer {
+    .clearfix();
+    border-radius: 0px 0px 5px 5px;
+    padding: 15px;
+    background-color: #fff;
+    margin-top: 0;
+    &.modal-footer-confirm {
+      background: #f2dede;
+      color: #b94a48;
+    }
+    .btn,
+    button {
+      padding: 8px 20px;
+      border: 0;
+      line-height: 25px;
+      margin-left: 5px;
+      margin-right: 5px;
+      .fa,
+      .bt-icon {
+        font-size: 18px;
+        position: relative;
+        top: 1px;
+        left: -2px;
+        &.fa-icon-right,
+        &.bt-icon-right {
+          left: auto;
+          top: 2px;
+          right: -2px;
+        }
+      }
+    }
+    .btn-group-dropdown {
+      .btn,
+      button {
+        padding-right: 10px;
+        + .btn,
+        + button {
+          padding-left: 10px;
+        }
+        &.dropdown-toggle {
+          padding-right: 15px;
+        }
+      }
+      .btn-success + .dropdown-menu {
+        padding: 0;
+        background-color: gr;
+        min-width: 0;
+        border-radius: 5px;
+        a {
+          color: #fff;
+          background-color: green;
+          padding: 10px 20px;
+          &:hover {
+            background-color: darken(@btn-success-bg, 10%);
+          }
+        }
+      }
+    }
+    .dropdown-toggle {
+      padding-left: 8px;
+    }
+    .btn-group {
+      margin-left: 5px;
+      margin-right: 5px;
+      .btn,
+      button {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    .btn--main-action {}
+    .btn-warning,
+    .btn-primary,
+    .btn-default,
+    .btn-danger {
+      background-color: darken(lightgrey, 20%);
+      color: #fff;
+    }
+    .btn-warning:hover {
+      background-color: orange;
+    }
+    .btn-primary:hover {
+      background-color: blue;
+    }
+    .btn-danger:hover {
+      background-color: red;
+    }
+    &:empty {
+      display: none;
+    }
+    a {
+      padding-right: 32px;
+    }
+  }
+  .modal-body {
+    .modal-footer {
+      margin-left: -20px;
+      margin-right: -20px;
+      margin-bottom: -20px;
+    }
+  }
+  &.modal-2col {
+    .modal-dialog {
+      width: 950px;
+      display: block;
+    }
+    .modal-content {
+      padding: 0px;
+      position: relative;
+      height: 650px;
+      overflow: hidden;
+      .left-col,
+      .right-col {
+        height: 100%;
+        height: 650px;
+        display: inline-block;
+        float: left;
+      }
+      .left-col {
+        width: 65%;
+        border-radius: 5px 0px 0px 5px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      .right-col {
+        width: 35%;
+        border-radius: 0px 5px 5px 0px;
+        .modal-body {
+          padding: 20px 20px 40px;
+        }
+      }
+    }
+  }
+  &.modal-dark {
+    color: #fff;
+    .close {
+      color: #fff;
+    }
+    .input-group-addon,
+    .input-group-btn,
+    .input-group .form-control {
+      color: #555;
+    }
+    .combo-item {
+      color: #555;
+    }
+    .modal-content {
+      background: grey;
+      label {
+        font-family: 'Lato';
+        font-weight: normal;
+      }
+      .badge {
+        background: blue;
+      }
+      .formButtonPair {
+        input[readonly="readonly"] {
+          background: lighten(grey, 10%);
+          color: #fff;
+        }
+      }
+      .right-col {
+        background: lighten(grey, 10%);
+        position: relative
+      }
+    }
+    .modal-footer {
+      background-color: lighten(grey, 10%);
+      border-top-color: lighten(grey, 20%);
+    }
+  }
+  &.modal-light {
+    .modal-content {
+      background: white;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      label {
+        color: lighten(grey, 10%);
+      }
+      label {
+        font-family: 'Lato';
+        font-weight: normal;
+      }
+    }
+    .modal-header {
+      border-bottom: none;
+      h1,
+      h2,
+      h3 {
+        color: #fff;
+      }
+      .btn-group {
+        margin-top: -5px;
+      }
+      &:empty {
+        display: none;
+      }
+    }
+    .modal-content {
+      .badge {
+        background: blue;
+      }
+      .formButtonPair {
+        input[readonly="readonly"] {
+          background: grey;
+          color: grey;
+        }
+      }
+      //
+      .right-col {
+        background-color: lightgrey;
+        position: relative;
+      }
+    }
+  }
+  &.modal-expanding {
+    form {
+      display: flex;
+    }
+    .modal-content {
+      padding: 0px;
+      position: relative;
+      height: auto;
+      .left-col,
+      .right-col {
+        height: auto;
+        display: flex;
+      }
+      .left-col {}
+      .right-col {
+        .modal-body {
+          display: flex;
+          height: auto;
+        }
+      }
+    }
+  }
+  .right-col {
+    .leads-notes {
+      .notes {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        background-color: darken(lightgrey, 2.5%);
+        box-shadow: inset 0 2px 3px rgba(0, 0, 0, .15);
+      }
+    }
+    .footer-btn-grp {
+      text-align: right;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      background: darken(lightgrey, 5%);
+      border-radius: 0 0 5px 0;
+      border-top: 1px solid darken(lightgrey, 20%);
+      a {
+        width: 50%;
+        text-align: center;
+        padding: 10px 15px;
+        display: inline-block;
+        color: grey;
+        border-right: 1px solid darken(grey, 20%);
+        background: darken(lightgrey, 5%);
+        .transition(all .2s ease);
+        &:hover {
+          background: darken(lightgrey, 20%);
+        }
+        &.btn-archive:hover,
+        &.btn-delete:hover {
+          color: #fff;
+        }
+        &.btn-archive:hover {
+          background-color: yellow;
+        }
+        &.btn-delete:hover {
+          background-color: red;
+        }
+      }
+      .last-btn {
+        border-right: 0;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+}
+
+.modal__head-section {
+  h1 {
+    margin-bottom: 5px;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+  .clearfix();
+  &.modal-inner {
+    padding-bottom: 0;
+  }
+}
+
+.modal__scroll-section {
+  overflow-y: auto;
+  max-height: 380px;
+  margin-bottom: 20px;
+  .table {
+    margin-bottom: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.modal-footer__message {
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 5px;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    margin: 0;
+  }
+}
+
+.modal-footer__message--danger,
+.modal-footer__message--warning,
+.modal-footer__message--success {
+  color: #fff;
+}
+
+.modal-footer__message--danger {
+  background-color: red;
+}
+
+.modal-footer__message--warning {
+  background-color: orange;
+}
+
+.modal-footer__message--success {
+  background-color: green;
+}

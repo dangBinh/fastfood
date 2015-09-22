@@ -1,0 +1,97 @@
+form(ng-submit="checkout()")
+  .step STEP 1: DELIVERY ADDRESS
+  .title WHERE SHOULD WE DELIVER YOUR FOOD?
+  .row-fluid
+    .form-group.mb-25.col-sm-6
+      label ADDRESS LINE #1
+      div(validation-input, callback='validate.address', required="true", showvalid='validate.showvalid.address')
+        input.form-control(id="address_1", name='address_1', data-ng-model='checkout.address_1', placeholder='ADDRESS LINE #1', type="text")
+
+    .form-group.mb-25.col-sm-6
+      label ADDRESS LINE #2
+      input.form-control(id="address_2", name='address_2', data-ng-model='checkout.address_2', placeholder='ADDRESS LINE #2', type="text")
+
+    .form-group.mb-25.col-sm-6
+      label POSTCODE
+      div(validation-input, callback='validate.postcode', required="true", showvalid='validate.showvalid.postcode')
+        input.form-control(to-upper, id="postcode", maxlength='256', name='postcode', data-ng-model='checkout.postcode', placeholder='Postcode', type="text")
+
+    .form-group.mb-25.col-sm-6
+      label PHONE
+      input.form-control(id="phone", maxlength='256', name='phone', data-ng-model='checkout.phone', placeholder='Phone', type="text")
+
+  .clearfix
+  .split
+  .step STEP 2: PAYMENT DETAILS
+  .title HOW WOULD YOU LIKE TO PAY?
+  .row-fluid
+    .login-tab-container
+      .login-tab
+        .tab-group
+          .btn.tab(ng-click="showTab(0)", ng-class="{'active': !tab}") Card
+          .btn.tab(ng-click="showTab(1)", ng-class="{'active': tab}") Paypal
+    div(ng-if="!tab")
+      .form-group.mb-25.col-sm-8.col-sm-offset-2
+        label CARDNUMBER
+        div(validation-input, callback='validate.cardnumber', required="true", showvalid='validate.showvalid.cardnumber')
+          input.form-control(id="cardnumber", maxlength='20', name='cardnumber', data-ng-model='checkout.cardnumber', placeholder='Card Number', type="text")
+
+      .form-group.mb-25.col-sm-8.col-sm-offset-2
+        .row
+          .col-sm-6
+            label EXPIRY DATE
+            .col-sm-6
+              .row
+                input.form-control.input-left(id="month", maxlength='2', name='month', data-ng-model='checkout.month', placeholder='MM', type="text")
+            .col-sm-6
+              .row
+                input.form-control.input-right(id="year", maxlength='2', name='year', data-ng-model='checkout.year', placeholder='YY', type="text")
+            .clearfix
+
+          .col-sm-6
+            label CCV
+            div(validation-input, callback='validate.ccv', required="true", showvalid='validate.showvalid.ccv')
+              input.form-control(id="ccv", maxlength='3', name='ccv', data-ng-model='checkout.ccv', placeholder='CCV', type="text")
+
+      .form-group.mb-25.col-sm-8.col-sm-offset-2
+        label BILLING POSTCODE
+        div(validation-input, callback='validate.billing_poscode', required="true", showvalid='validate.showvalid.billing_poscode')
+          input.form-control(to-upper, id="billing_poscode", maxlength='256', name='billing_poscode', data-ng-model='checkout.billing_poscode', placeholder='Billing Postcode', type="text")
+
+      .form-group.mb-25.col-sm-8.col-sm-offset-2
+        input(type='checkbox', i-check, ng-model="remember")
+        |  Remember This Card
+
+      .clearfix
+
+      .form-group.mb-25.col-sm-8.col-sm-offset-2
+        .alert.alert-success
+          .col-md-2.text-center.pt-10
+            i.fa.fa-lock.f-35
+          .col-md-10 Your details are securely stored with our payment processing partner using bank-grade encryption.
+          .clearfix
+      .clearfix
+      hr
+
+      .form-group.mb-25.col-sm-8.col-sm-offset-2(ng-show="!showCode")
+        a(href='javscript:;', ng-click='showCode=true') Add Discount Code
+
+      .form-group.mb-25.col-sm-8.col-sm-offset-2(ng-if='showCode')
+        label DISCOUNT CODE
+        input.form-control(id="addcode", name='addcode', ng-model="code", placeholder="Code")
+
+    div(ng-if="tab")
+      .form-group.mb-25.col-sm-8.col-sm-offset-2
+        label PAYPAL ACCOUNT
+        div(validation-input, callback='validate.paypal', showvalid='validate.showvalid.paypal')
+          input.form-control(id="paypal", name='paypal', data-ng-model='checkout.paypal', placeholder='Paypal Account', type="text")
+
+    .clearfix
+    hr
+
+    .form-group.mb-25.text-center
+      | We think your order should be with you in
+      strong  minutes.
+
+    .form-group.col-sm-12
+      button.btn.btn-lg.btn-theme.btn-block(id="signin_modal_form", type='submit') CONFIRM &amp; PAY

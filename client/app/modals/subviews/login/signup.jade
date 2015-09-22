@@ -1,0 +1,30 @@
+fieldset(ng-controller="SignupCtrl", ng-submit="signup()")
+  .row-fluid
+    .form-group.mb-25.col-sm-6
+      div(validation-input, callback='validate.screenname', required="true")
+        input.form-control(id="screenname", maxlength='256', name='screenname', data-ng-model='user.screenname', placeholder='Full Name', type="text")
+
+    .form-group.mb-25.col-sm-6
+      div(validation-input, callback='validate.username', required="true")
+        input.form-control(id="username", maxlength='256', name='username', data-ng-model='user.username', placeholder='User Name', type="text")
+
+    .form-group.mb-25.col-sm-6
+      div(validation-input, callback='validate.email', required="true")
+        input.form-control(id="email", maxlength='256', name='email', data-ng-model='user.email', placeholder='Email Address', type="text")
+
+    .form-group.mb-25.col-sm-6
+      div(validation-input, callback='validate.password', required="true")
+        input.form-control(id="password", maxlength="256", name="password", data-ng-model="user.password", placeholder="Password", type="password")
+
+    .form-group.mb-25.col-sm-6
+      div(validation-input, callback='validate.postcode', required="true")
+        input.form-control(to-upper, id="postcode", maxlength='256', name='postcode', data-ng-model='user.postcode', placeholder='Postcode', type="text")
+    .form-group.mb-25.col-sm-6
+      div(validation-input, callback='validate.address', required="true")
+        input.form-control(id='address' name='user_address' placeholder="Delivery Address" data-ng-model='user_address' type='text')
+    .form-group.col-sm-12
+      button.btn.btn-lg.btn-theme.btn-block(id="signin_modal_form", type='submit') Join Now
+
+    .form-group.col-sm-10
+      div
+        h5 By continuing, I agree to  Dlietme's Terms & Conditions

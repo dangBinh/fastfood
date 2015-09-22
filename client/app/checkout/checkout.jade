@@ -1,0 +1,15 @@
+.banner-common.banner-common-menu-page.mb-25
+	.container
+		.row
+			.col-sm-12
+				.text-center.base-box
+					h1 Select your menus below.
+					p Please select your menus, sides, choice of drinks as well as any dietary requirements.
+
+.container.checkout
+	.row
+		.col-md-6.col-md-offset-3.col-sm-8
+			.base-container.account
+				fieldset
+					div(ui-view="checkout")
+		.col-md-3.col-sm-4.hidden-xs.checkout-right(ng-include='"./app/checkout/checkout_right.html"')

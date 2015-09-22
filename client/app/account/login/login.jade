@@ -1,0 +1,46 @@
+.banner-common.banner-common-login-page
+  .container
+    .row
+      .col-sm-12
+        .text-center.base-box
+          h1 Welcome Back
+
+
+.section_inner
+  .container
+    .col-lg-6.col-md-6.col-sm-6.col-xs-12.col-lg-offset-3.col-md-offset-3.col-sm-offset-3
+      .row
+        .page-header
+          h1
+            | Sign In
+        form.form-horizontal.signin-form#user-login-form(
+          name='form',
+          data-ng-submit='login(form)',
+          novalidate='')
+          .form-group
+            label.col-lg-3.control-label(for='email')
+              | Email
+              span.required *
+            .col-lg-7
+              input.form-control(type='text', title='Enter your Email' placeholder='Email Address' name='email')
+          .form-group
+            label.col-lg-3.control-label(for='password')
+              | Password
+              span.required *
+            .col-lg-7
+              input.form-control(type='password', placeholder='Password' name='password')
+          .form-group
+            label.col-lg-3.control-label(for='')
+            .col-lg-7
+              label.control-label(style='width: auto')
+                input.checkbox.form-control(ng-model='remember_me' i-check type='checkbox' class='checkbox' value='remember me')
+                span.space Keep me logged in
+          .form-group
+              input.btn.btn-lg.btn-primary.btn-block(style='text-transform: none; width: 53.3%; margin-left: 175px; font-size: 18px', type='submit', value='Sign In', name='LOGIN')
+          .form-group(style='margin-left: 170px')
+
+            a(href='/signup') Signup
+            div
+
+            a(href='#') Forgot your password
+          br
